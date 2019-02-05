@@ -6,7 +6,7 @@ import com.ceosilvajr.mytaxi.network.reponses.FetchVehicleResponse
  * @author ceosilvajr@gmail.com
  */
 class Vehicle(
-        val id: String = "",
+        val id: Int = 0,
         val fleetType: String = "",
         val heading: Double = 0.0,
         val latitude: Double = 0.0,

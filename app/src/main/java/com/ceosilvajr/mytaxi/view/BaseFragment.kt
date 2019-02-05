@@ -1,4 +1,4 @@
-package com.ceosilvajr.mytaxi.fragments
+package com.ceosilvajr.mytaxi.view
 
 import androidx.fragment.app.Fragment
 import io.reactivex.disposables.CompositeDisposable

@@ -1,4 +1,4 @@
-package com.ceosilvajr.mytaxi.data
+package com.ceosilvajr.mytaxi.data.enums
 
 enum class HamburgLocationBounds(val value: Double) {
     LAT_1(53.694865),

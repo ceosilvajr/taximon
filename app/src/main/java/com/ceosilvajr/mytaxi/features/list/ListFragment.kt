@@ -1,4 +1,4 @@
-package com.ceosilvajr.mytaxi.fragments
+package com.ceosilvajr.mytaxi.features.list
 
 
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.ceosilvajr.mytaxi.R
 import com.ceosilvajr.mytaxi.data.entities.Vehicle
 import com.ceosilvajr.mytaxi.features.FetchVehicleView
 import com.ceosilvajr.mytaxi.features.VehiclePresenter
-import com.ceosilvajr.mytaxi.features.list.VehicleListAdapter
+import com.ceosilvajr.mytaxi.view.BaseFragment
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.okButton

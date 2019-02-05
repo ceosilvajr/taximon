@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ceosilvajr.mytaxi.R
 import com.ceosilvajr.mytaxi.data.entities.Vehicle
+import com.ceosilvajr.mytaxi.data.enums.FleetType
 import kotlinx.android.synthetic.main.item_vehicle.view.*
 
 /**
@@ -34,15 +35,24 @@ class VehicleListAdapter(private val context: Context, private val items: ArrayL
         private val id = view.tv_vehicle_id!!
         private val fleetType = view.tv_vehicle_fleet_type!!
         private val heading = view.tv_vehicle_heading!!
-        private val latitude = view.tv_vehicle_latitude!!
-        private val longitude = view.tv_vehicle_longitude!!
+        private val location = view.tv_vehicle_location!!
+        private val avatar = view.iv_fleet_type!!
 
         fun bindView(vehicle: Vehicle) {
-            id.text = vehicle.id
-            fleetType.text = vehicle.fleetType
+            id.text = vehicle.id.toString()
+            fleetType.text = vehicle.fleetType.toUpperCase()
             heading.text = vehicle.heading.toString()
-            latitude.text = vehicle.latitude.toString()
-            longitude.text = vehicle.longitude.toString()
+            location.text = "(${vehicle.latitude} , ${vehicle.longitude})"
+            when (vehicle.fleetType) {
+                FleetType.POOLING.value -> {
+                    fleetType.setBackgroundResource(R.drawable.bg_rounded_accent)
+                    avatar.setImageResource(R.drawable.ic_svg_car_pooling)
+                }
+                else -> {
+                    fleetType.setBackgroundResource(R.drawable.bg_rounded_gray)
+                    avatar.setImageResource(R.drawable.ic_svg_car_taxi)
+                }
+            }
         }
     }
 }

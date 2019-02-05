@@ -1,4 +1,4 @@
-package com.xbvip.android.koin
+package com.ceosilvajr.mytaxi.koin
 
 import com.ceosilvajr.mytaxi.BuildConfig
 import com.ceosilvajr.mytaxi.network.AppApi

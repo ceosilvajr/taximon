@@ -26,6 +26,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$support_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation 'androidx.core:core-ktx:1.0.1'
     // Navigation
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
@@ -39,10 +40,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android"
     // Koin
     implementation "org.koin:koin-android:$koin"
-    implementation "org.koin:koin-android-viewmodel:$koin"
-    implementation "org.koin:koin-android-scope:$koin"
     // Anko
     implementation "org.jetbrains.anko:anko-commons:$anko"
+    // Maps
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
     // Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

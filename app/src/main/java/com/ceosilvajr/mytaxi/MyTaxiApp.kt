@@ -1,8 +1,8 @@
 package com.ceosilvajr.mytaxi
 
 import android.app.Application
-import com.xbvip.android.koin.MainAppModule
-import com.xbvip.android.koin.NetworkAppModule
+import com.ceosilvajr.mytaxi.koin.MainAppModule
+import com.ceosilvajr.mytaxi.koin.NetworkAppModule
 import org.koin.android.ext.android.startKoin
 
 /**

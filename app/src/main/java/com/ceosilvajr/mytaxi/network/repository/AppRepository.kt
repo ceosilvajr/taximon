@@ -1,6 +1,6 @@
 package com.ceosilvajr.mytaxi.network.repository
 
-import com.ceosilvajr.mytaxi.data.HamburgLocationBounds
+import com.ceosilvajr.mytaxi.data.enums.HamburgLocationBounds
 import com.ceosilvajr.mytaxi.network.AppApi
 import com.ceosilvajr.mytaxi.network.reponses.FetchVehicleResponse
 import io.reactivex.Flowable

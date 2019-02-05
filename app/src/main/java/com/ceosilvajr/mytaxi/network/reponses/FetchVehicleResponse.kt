@@ -12,7 +12,7 @@ class FetchVehicleResponse {
 
     inner class Vehicle {
         @SerializedName("id")
-        val id: String = ""
+        val id: Int = 0
         @SerializedName("coordinate")
         val coordinate: Coordinate = Coordinate()
         @SerializedName("fleetType")
