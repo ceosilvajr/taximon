@@ -37,6 +37,8 @@ ext {
     rx_android = '2.1.0'
     koin = '1.0.2'
     anko = '0.10.8'
+    maps = '16.0.0'
+    ktx = '1.0.1'
 }
 
 task clean(type: Delete) {

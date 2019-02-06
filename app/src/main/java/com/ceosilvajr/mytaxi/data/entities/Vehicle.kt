@@ -9,7 +9,7 @@ import com.ceosilvajr.mytaxi.network.reponses.FetchVehicleResponse
  */
 data class Vehicle(
         val id: Int = 0,
-        val fleetType: String = "",
+        val fleetType: String? = "",
         val heading: Double = 0.0,
         val latitude: Double = 0.0,
         val longitude: Double = 0.0

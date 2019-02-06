@@ -24,9 +24,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:$ktx"
     implementation "androidx.appcompat:appcompat:$support_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
-    implementation 'androidx.core:core-ktx:1.0.1'
     // aac
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     // Navigation
@@ -43,11 +43,10 @@ dependencies {
     // Koin
     implementation "org.koin:koin-android:$koin"
     implementation "org.koin:koin-androidx-viewmodel:$koin"
-    implementation "org.koin:koin-androidx-scope:$koin"
     // Anko
     implementation "org.jetbrains.anko:anko-commons:$anko"
     // Maps
-    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation "com.google.android.gms:play-services-maps:$maps"
     // Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

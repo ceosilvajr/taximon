@@ -48,7 +48,7 @@ class VehicleListAdapter(private val context: Context, private val items: ArrayL
 
         fun bindView(vehicle: Vehicle) {
             id.text = vehicle.id.toString()
-            fleetType.text = vehicle.fleetType.toUpperCase()
+            fleetType.text = vehicle.fleetType?.toUpperCase()
             heading.text = vehicle.heading.toString()
             location.text = "(${vehicle.latitude} , ${vehicle.longitude})"
             when (vehicle.fleetType) {
