@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyTaxi</string>
+    <string name="menu_list">List</string>
+    <string name="menu_map">Map</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_vehicle_id">Number:</string>
+    <string name="title_vehicle_heading">Heading:</string>
+    <string name="title_vehicle_location">Location:</string>
 </resources>
