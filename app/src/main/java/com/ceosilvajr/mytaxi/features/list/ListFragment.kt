@@ -1,62 +1,65 @@
 package com.ceosilvajr.mytaxi.features.list
 
-
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.ceosilvajr.mytaxi.R
-import com.ceosilvajr.mytaxi.data.entities.Vehicle
-import com.ceosilvajr.mytaxi.features.FetchVehicleView
-import com.ceosilvajr.mytaxi.features.VehiclePresenter
-import com.ceosilvajr.mytaxi.view.BaseFragment
+import com.ceosilvajr.mytaxi.features.listeners.OnRequestFetchVehicleListener
+import com.ceosilvajr.mytaxi.features.listeners.OnVehicleItemClickedListener
+import com.ceosilvajr.mytaxi.features.VehicleViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.okButton
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 /**
  * @author ceosilvajr@gmail.com
  */
-class ListFragment : BaseFragment(), FetchVehicleView {
+class ListFragment : Fragment() {
 
-    private val presenter: VehiclePresenter by inject()
+    private val viewModel: VehicleViewModel by sharedViewModel()
+
     private lateinit var adapter: VehicleListAdapter
+    private lateinit var listener: Lister
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        adapter = VehicleListAdapter(context!!, arrayListOf())
-        initializeView()
-        compositeDisposable.add(presenter.fetchVehicles(this))
-    }
-
-    private fun initializeView() {
-        rv_vehicles.adapter = adapter
-        rv_vehicles.setHasFixedSize(true)
-        swipe_refresh.setOnRefreshListener {
-            compositeDisposable.add(presenter.fetchVehicles(this))
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is Lister) {
+            listener = context
+        } else {
+            throw RuntimeException("ListFragment.Listener should be implemented.")
         }
     }
 
-    override fun onVehiclesAvailable(vehicles: ArrayList<Vehicle>) {
-        adapter.updateData(vehicles)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initializeView()
+        initViewModel()
     }
 
-    override fun showLoading() {
+    private fun initViewModel() {
+        viewModel.getVehicle().observe(this, Observer {
+            swipe_refresh.isRefreshing = false
+            adapter.updateData(it)
+        })
+    }
+
+    private fun initializeView() {
+        adapter = VehicleListAdapter(context!!, arrayListOf())
+        adapter.setListener(listener)
+        rv_vehicles.adapter = adapter
+        rv_vehicles.setHasFixedSize(true)
         swipe_refresh.isRefreshing = true
+        swipe_refresh.setOnRefreshListener {
+            listener.onRequestFetchVehicle()
+        }
     }
 
-    override fun hideLoading() {
-        swipe_refresh.isRefreshing = false
-    }
-
-    override fun alertMessage(message: String) {
-        activity!!.alert(message) {
-            okButton { it.dismiss() }
-        }.show()
-    }
+    interface Lister : OnVehicleItemClickedListener, OnRequestFetchVehicleListener
 }

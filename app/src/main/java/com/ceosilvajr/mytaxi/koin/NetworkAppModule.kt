@@ -21,7 +21,7 @@ object NetworkAppModule {
         return module {
             single { httpClient() }
             single { createRetrofit(get()) }
-            single { createAuthApiService(get()) }
+            factory { createAuthApiService(get()) }
         }
     }
 

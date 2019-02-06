@@ -19,7 +19,6 @@ class FetchVehicleResponse {
         val fleetType: String = ""
         @SerializedName("heading")
         val heading: Double = 0.0
-
     }
 
     inner class Coordinate {

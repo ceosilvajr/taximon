@@ -63,7 +63,6 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_fleet_type"
                 app:layout_constraintTop_toTopOf="@+id/iv_fleet_type" />
 
-
             <TextView
                 android:id="@+id/tv_vehicle_id"
                 android:layout_width="wrap_content"
@@ -114,9 +113,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_vehicle_heading"
                 tools:text="(213213,12312312)" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

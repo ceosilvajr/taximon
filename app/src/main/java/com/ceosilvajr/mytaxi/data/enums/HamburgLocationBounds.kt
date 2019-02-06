@@ -1,5 +1,8 @@
 package com.ceosilvajr.mytaxi.data.enums
 
+/**
+ * @author ceosilvajr@gmail.com
+ */
 enum class HamburgLocationBounds(val value: Double) {
     LAT_1(53.694865),
     LON_1(9.757589),

@@ -1,11 +1,11 @@
-package com.ceosilvajr.mytaxi.features
+package com.ceosilvajr.mytaxi.features.listeners
 
 import com.ceosilvajr.mytaxi.data.entities.Vehicle
-import com.ceosilvajr.mytaxi.view.BaseView
 
 /**
  * @author ceosilvajr@gmail.com
  */
-interface FetchVehicleView : BaseView {
+interface FetchVehicleView {
+    fun alertMessage(message: String)
     fun onVehiclesAvailable(vehicles: ArrayList<Vehicle>)
 }

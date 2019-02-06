@@ -8,14 +8,7 @@
         android:id="@+id/listFragment"
         android:name="com.ceosilvajr.mytaxi.features.list.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list">
-        <action
-            android:id="@+id/action_homeFragment_to_mapFragment"
-            app:destination="@id/mapFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/listFragment" />
-    </fragment>
-
+        tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.ceosilvajr.mytaxi.features.map.VehicleMapFragment"

@@ -12,6 +12,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+/**
+ * @author ceosilvajr@gmail.com
+ */
 fun GoogleMap.addVehicle(context: Context, vehicle: Vehicle) {
     when (vehicle.fleetType) {
         FleetType.POOLING.value -> {
@@ -29,8 +32,7 @@ fun GoogleMap.addVehicle(context: Context, vehicle: Vehicle) {
     }
 }
 
-fun GoogleMap.zoomVehicle(vehicle: Vehicle) {
-    val zoomLevel = 10f
+fun GoogleMap.zoomVehicle(vehicle: Vehicle, zoomLevel: Float) {
     val latLng = LatLng(vehicle.latitude, vehicle.longitude)
     this.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
 }
